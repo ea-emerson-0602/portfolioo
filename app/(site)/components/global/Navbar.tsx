@@ -86,13 +86,14 @@ export default function Navbar() {
 
       {/* Search Bar */}
       <div className="bg-[#3D3E42] px-5 py-2 gap-2 flex items-center rounded-lg">
-        <input
-          type="search"
-          className="bg-transparent w-[10vw] text-main-grey"
-          placeholder="Search"
-        />
-        <FaSearch className="text-primary-yellow" />
-      </div>
+  <input
+    type="search"
+    className="bg-transparent w-[10vw] focus:px-2 text-main-grey placeholder:text-main-grey focus:text-primary-yellow focus:outline-none focus:ring-2 focus:text-sm focus:ring-primary-yellow focus:border-transparent focus:rounded-md"
+    placeholder="Search"
+  />
+  <FaSearch className="text-primary-yellow" />
+</div>
+
     </nav>
   );
 }
