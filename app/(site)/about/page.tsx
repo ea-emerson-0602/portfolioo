@@ -13,7 +13,7 @@ export default async function About() {
   return (
     <main className="mx-auto md:px-16 lg:px-24 lg:py-32 py-12 md:py-24 px-6">
       {profile.map((data) => (
-        <>
+        <div key={data._id}>
           <h1 className="">About</h1>
           <section key={data._id} className="flex gap-x-6 justify-items-center">
             <div className=" text-2xl w-full flex text-zinc-400 leading-relaxed">
@@ -26,7 +26,7 @@ export default async function About() {
               {data.shortBio}
             </div>
           </section>
-        </>
+        </div>
       ))}
 
       <Skills />
