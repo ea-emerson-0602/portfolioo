@@ -1,12 +1,9 @@
-// app/projects/page.tsx
-
 import Image from "next/image";
 import Link from "next/link";
 import { getProjects, getSkills } from "@/sanity/sanity.query";
 import type { ProjectType } from "@/types";
-import type { SkillType } from "@/types";
 
-export default async function Project() {
+export default async function Projects() {
   const projects: ProjectType[] = await getProjects();
 
   return (

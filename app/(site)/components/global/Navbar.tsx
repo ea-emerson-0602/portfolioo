@@ -1,17 +1,59 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../icons/logo.png";
-import { usePathname } from "next/navigation"; 
+import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 
 export default function Navbar() {
-  const pathname = usePathname();  
+  const [activeHash, setActiveHash] = useState("");
 
-  const navItems = ["About", "Projects", "Contact"];
+  useEffect(() => {
+    // Set initial active state based on URL hash
+    const initialHash = window.location.hash || "";
+    setActiveHash(initialHash);
+
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section[id]");
+      let currentActiveHash = "";
+
+      sections.forEach((section) => {
+        const sectionElement = section as HTMLElement;
+        const sectionTop = sectionElement.offsetTop;
+        if (window.scrollY >= sectionTop - 100) {
+          // Adjust offset as needed
+          currentActiveHash = `#${section.id}`;
+        }
+      });
+
+      setActiveHash(currentActiveHash);
+      if (currentActiveHash && window.location.hash !== currentActiveHash) {
+        window.history.pushState(null, "", currentActiveHash);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleClick = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setActiveHash(href);
+      window.history.pushState(null, "", href);
+    }
+  };
+
+  const navItems = [
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   return (
-    <nav className="text-xl flex items-center justify-between py-6 md:py-8 lg:py-10 md:px-16 lg:px-24 px-6">
+    <nav className="fixed top-0 left-0 w-full bg-main text-xl flex items-center justify-between py-4 md:px-16 lg:px-24 px-6 shadow-md z-50">
       {/* Logo Section */}
       <Link href="/">
         <Image src={Logo} width={60} alt="logo" />
@@ -19,22 +61,23 @@ export default function Navbar() {
 
       {/* Navigation Links */}
       <ul className="flex items-center gap-x-8 text-main-grey">
-        {navItems.map((text) => {
-          const isActive = pathname === `/${text.toLowerCase()}`;
+        {navItems.map((item) => {
+          const isActive = activeHash === item.href;
           return (
-            <li key={text} className="relative">
-              <Link
-                href={`/${text.toLowerCase()}`}
+            <li key={item.name} className="relative">
+              <a
+                onClick={() => handleClick(item.href)}
+                href={item.href}
                 className={`font-semibold duration-300 ${
                   isActive
-                    ? "text-primary-yellow  border-primary-yellow"
+                    ? "text-primary-yellow "
                     : "hover:text-primary-yellow"
                 }`}
               >
-                {text}
-              </Link>
+                {item.name}
+              </a>
               {isActive && (
-                <span className="absolute left-0 right-0 bottom-[-8px] h-[4px] bg-primary-yellow"></span>
+                <span className="absolute left-0 right-0 rounded-full bottom-[-8px] h-[4px] bg-primary-yellow"></span>
               )}
             </li>
           );
@@ -48,7 +91,7 @@ export default function Navbar() {
           className="bg-transparent w-[10vw] text-main-grey"
           placeholder="Search"
         />
-        <FaSearch className="text-main-grey" />
+        <FaSearch className="text-primary-yellow" />
       </div>
     </nav>
   );
