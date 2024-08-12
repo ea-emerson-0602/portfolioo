@@ -35,7 +35,7 @@ export default async function Home() {
               className="flex justify-around items-center w-full lg:flex-row flex-col"
             >
               <span className="lg:w-[30vw] lg:max-w-[35vw] w-full lg:text-4xl text-3xl lg:leading-tight mb-8">
-                I'm
+                I&apos;m
                 <span className="h1 text-primary-yellow lg:text-7xl text-4xl">
                   {" "}
                   {data.fullName}
