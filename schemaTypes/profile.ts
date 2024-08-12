@@ -2,6 +2,10 @@
 "use client"
 import { defineField } from "sanity";
 import {BiUser} from "react-icons/bi"
+import { Twitter } from "next/dist/lib/metadata/types/twitter-types";
+import { FaGithub, FaTwitter } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaTwitch } from "react-icons/fa";
 
 const profile = {
   name: "profile",
@@ -20,7 +24,7 @@ const profile = {
       title: "Headline",
       type: "string",
       description: "In one short sentence, what do you do?",
-      validation: (Rule) => Rule.required().min(40).max(50),
+      validation: (Rule) => Rule.required().min(20).max(50),
     }),
     {
       name: "profileImage",
@@ -74,24 +78,28 @@ const profile = {
           title: "Github URL",
           type: "url",
           initialValue: "https://github.com/",
+          icon: FaGithub
         },
         {
           name: "linkedin",
           title: "Linkedin URL",
           type: "url",
           initialValue: "https://linkedin.com/in/",
+          icon: FaLinkedin
         },
         {
           name: "twitter",
           title: "Twitter URL",
           type: "url",
           initialValue: "https://twitter.com/",
+          icon:FaTwitter
         },
         {
           name: "twitch",
           title: "Twitch URL",
           type: "url",
           initialValue: "https://twitch.com/",
+          icon:FaTwitch
         },
       ],
       options: {

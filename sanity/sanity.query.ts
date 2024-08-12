@@ -67,3 +67,13 @@ export async function getSingleProject(slug: string) {
     { slug }
   );
 }
+
+export async function getSkills() {
+  return client.fetch(
+    groq`*[_type == "skill"]{
+      _id, 
+      name,
+      "logo": logo.asset->url,
+    }`
+  );
+}

@@ -1,35 +1,55 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../icons/logo.png";
+import { usePathname } from "next/navigation"; 
+import { FaSearch } from "react-icons/fa";
 
 export default function Navbar() {
+  const pathname = usePathname();  
+
+  const navItems = ["About", "Projects", "Contact"];
+
   return (
-    <header className="py-6 md:px-16 px-6 border-b border-zinc-800 z-30 md:mb-28 mb-20">
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
-        <Link href="/">
-          <Image src={Logo} width={25} height={25} alt="logo" />
-        </Link>
-        <nav>
-          <ul className="flex items-center gap-x-8">
-            <li>
+    <nav className="text-xl flex items-center justify-between py-6 md:py-8 lg:py-10 md:px-16 lg:px-24 px-6">
+      {/* Logo Section */}
+      <Link href="/">
+        <Image src={Logo} width={60} alt="logo" />
+      </Link>
+
+      {/* Navigation Links */}
+      <ul className="flex items-center gap-x-8 text-main-grey">
+        {navItems.map((text) => {
+          const isActive = pathname === `/${text.toLowerCase()}`;
+          return (
+            <li key={text} className="relative">
               <Link
-                href="/about"
-                className="hover:text-purple-400 duration-300"
+                href={`/${text.toLowerCase()}`}
+                className={`font-semibold duration-300 ${
+                  isActive
+                    ? "text-primary-yellow  border-primary-yellow"
+                    : "hover:text-primary-yellow"
+                }`}
               >
-                About
+                {text}
               </Link>
+              {isActive && (
+                <span className="absolute left-0 right-0 bottom-[-8px] h-[4px] bg-primary-yellow"></span>
+              )}
             </li>
-            <li>
-              <Link
-                href="/projects"
-                className="hover:text-purple-400 duration-300"
-              >
-                Projects
-              </Link>
-            </li>
-          </ul>
-        </nav>
+          );
+        })}
+      </ul>
+
+      {/* Search Bar */}
+      <div className="bg-[#3D3E42] px-5 py-2 gap-2 flex items-center rounded-lg">
+        <input
+          type="search"
+          className="bg-transparent w-[10vw] text-main-grey"
+          placeholder="Search"
+        />
+        <FaSearch className="text-main-grey" />
       </div>
-    </header>
+    </nav>
   );
 }

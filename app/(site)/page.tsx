@@ -1,44 +1,90 @@
 import { getProfile } from "@/sanity/sanity.query";
 import type { ProfileType } from "@/types";
-// import HeroSvg from "./(site)/icons/HeroSvg";
 import HeroSvg from "./icons/HeroSvg";
 import Job from "./components/Job";
+import Image from "next/image";
+import { FaGithub, FaTwitter, FaLinkedin, FaTwitch } from "react-icons/fa";
+import { IconType } from "react-icons";
+import About from "./about/page";
 
 export default async function Home() {
   const profile: ProfileType[] = await getProfile();
 
+  const socialIcons: Record<string, IconType> = {
+    github: FaGithub,
+    twitter: FaTwitter,
+    twitch: FaTwitch,
+    linkedin: FaLinkedin,
+  };
+
   return (
-    <main className="max-w-7xl mx-auto lg:px-16 px-6">
-      <section className="flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between gap-x-12 lg:mt-32 mt-20 mb-16">
-        {profile &&
+    // <main className="max-w-[100vw] mx-auto ">
+      // {profile &&
           profile.map((data) => (
-            <div key={data._id} className="lg:max-w-2xl max-w-2xl">
-              <h1 className="text-3xl font-bold tracking-tight sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight lg:min-w-[700px] min-w-full">
-                {data.headline}
-              </h1>
-              <p className="text-base text-zinc-400 leading-relaxed">
-                {data.shortBio}
-              </p>
-              <ul className="flex items-center gap-x-6 my-10">
-                {Object.entries(data.socialLinks)
-                  .sort()
-                  .map(([key, value], id) => (
-                    <li key={id}>
-                      <a
-                        href={value}
-                        rel="noreferer noopener"
-                        className="flex items-center gap-x-3 mb-5 hover:text-purple-400 duration-300"
-                      >
-                        {key[0].toUpperCase() + key.toLowerCase().slice(1)}
-                      </a>
-                    </li>
-                  ))}
-              </ul>
+            <main className="max-w-[100vw] mx-auto mt-0"><section
+        className=" w-full lg:h-[100vh] flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between px-28 object-cover  py-10"
+        style={{
+          backgroundImage: `url(${data.profileImage.image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        
+            <div
+              key={data._id}
+              className="flex justify-around items-center w-full lg:flex-row flex-col"
+            >
+              <span className="lg:w-[30vw] lg:max-w-[35vw] w-full lg:text-4xl text-3xl lg:leading-tight mb-8">
+                I'm
+                <span className="h1 text-primary-yellow lg:text-7xl text-4xl">
+                  {" "}
+                  {data.fullName}
+                </span>
+                <p>{data.headline}</p>
+              </span>
+
+              <div
+                className="relative rounded-2xl mb-4 lg:w-[50vw] lg:max-w-[60vw] w-full h-[60vh] bg-top "
+                
+                aria-label={data.profileImage.alt}
+              >
+                <ul className="absolute bottom-4 right-4 flex flex-col items-end gap-y-4">
+                  <div
+                    className="h-24 w-[2px] mb-4 m-auto"
+                    style={{
+                      backgroundColor: "var(--vertical-bar-color, #FEC76A)",
+                    }}
+                  ></div>
+                  {Object.entries(data.socialLinks)
+                    .sort()
+                    .map(([key, value], id) => {
+                      const IconComponent = socialIcons[key.toLowerCase()];
+                      return (
+                        <li key={id}>
+                          <a
+                            href={value}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className="hover:text-primary-yellow text-white duration-300"
+                          >
+                            {IconComponent ? (
+                              <IconComponent className="text-xl" />
+                            ) : null}
+                          </a>
+                        </li>
+                      );
+                    })}
+                </ul>
+              </div>
             </div>
-          ))}
-          <Job/>
-        <HeroSvg />
+         
+        {/* <Job/> */}
+        {/* <HeroSvg /> */}
       </section>
-    </main>
+       
+      <section className="bg-about-grey">
+        <About />
+      </section></main>
+      ))
   );
 }

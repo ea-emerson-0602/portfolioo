@@ -47,3 +47,10 @@ export type ProjectType = {
   };
   description: PortableTextBlock[];
 };
+
+export type SkillType = {
+  _id:string;
+  name:string;
+  logo: string;
+
+}

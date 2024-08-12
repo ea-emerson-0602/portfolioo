@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { getProjects } from "@/sanity/sanity.query";
+import { getProjects, getSkills } from "@/sanity/sanity.query";
 import type { ProjectType } from "@/types";
+import type { SkillType } from "@/types";
 
 export default async function Project() {
   const projects: ProjectType[] = await getProjects();
