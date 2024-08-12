@@ -21,7 +21,7 @@ export default async function Home() {
     // <main className="max-w-[100vw] mx-auto ">
       // {profile &&
           profile.map((data) => (
-            <main className="max-w-[100vw] mx-auto mt-0"><section
+            <main className="max-w-[100vw] mx-auto mt-0" key={data._id}><section
         className=" w-full lg:h-[100vh] flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between px-28 object-cover  py-10"
         style={{
           backgroundImage: `url(${data.profileImage.image})`,
