@@ -26,7 +26,7 @@ export default async function Projectss() {
         {projects.map((project) => (
           <div
             key={project._id}
-            className="relative group flex items-center justify-center bg-cover bg-center h-64 rounded-lg"
+            className="relative group cursor-pointer flex items-center justify-center bg-cover bg-center h-64 rounded-lg"
             style={{ backgroundImage: `url(${project.logo})` }}
           >
             <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 rounded-lg"></div>

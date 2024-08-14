@@ -34,7 +34,7 @@ export default async function Project({ params }: Props) {
   const project: ProjectType = await getSingleProject(slug);
 
   return (
-    <main className="max-w-6xl mx-auto lg:px-16 px-8">
+    <main className="lg:pt-32 pt-12 md:pt-24 mx-auto lg:px-16 px-8">
       <div className="max-w-3xl mx-auto">
         <div className="flex items-start justify-between mb-4">
           <h1 className="font-bold lg:text-5xl text-3xl lg:leading-tight mb-4">
@@ -44,7 +44,7 @@ export default async function Project({ params }: Props) {
           <a
             href={project.projectUrl}
             rel="noreferrer noopener"
-            className="bg-[#1d1d20] text-white hover:border-zinc-700 border border-transparent rounded-md px-4 py-2"
+            className="bg-primary-yellow text-white hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-primary-yellow/50 border border-transparent rounded-md px-4 py-2"
           >
             Explore
           </a>

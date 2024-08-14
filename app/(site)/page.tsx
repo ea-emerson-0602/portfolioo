@@ -8,10 +8,8 @@ import About from "./about/page";
 import Projects from "./projects/page";
 import Contact from "./contact/page";
 import SmoothScrollButton from "./components/ui/SmoothScrollButton";
-// import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Button } from "./components/ui/button";
-// import ButtonCustom from "./components/Button";
 
 export default async function Home() {
   const profile: ProfileType[] = await getProfile();
@@ -20,52 +18,36 @@ export default async function Home() {
     github: FaGithub,
     twitter: FaTwitter,
     twitch: FaTwitch,
-    linkedin: FaLinkedin, 
+    linkedin: FaLinkedin,
   };
 
   return profile.map((data) => (
-    <main className="max-w-[100vw] mx-auto mt-0 "  key={data._id}>
+    <main className="max-w-full mx-auto mt-0" key={data._id}>
       <section
         id="/"
-        className=" w-full lg:h-[100vh] flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between px-28 object-cover  py-10"
+        className="w-full h-screen flex flex-col-reverse lg:flex-row-reverse lg:items-center items-start lg:justify-center justify-between px-4 py-10"
         style={{
           backgroundImage: `url(${data.profileImage.image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          boxShadow: "0px 10px 20px -10px rgba(0, 0, 0, 0.9), 0px 20px 20px -20px #31333B"
         }}
       >
-        <div
-          key={data._id}
-          className="flex justify-around items-center w-full lg:flex-row flex-col"
-        >
-          <span className="lg:w-[30vw] lg:max-w-[35vw] w-full lg:text-4xl text-3xl lg:leading-tight mb-8">
+        <div className="flex flex-col lg:flex-row justify-around items-center w-full">
+          <span className="w-full lg:w-1/2 text-center lg:text-left mb-8">
             I&apos;m
-            <span className="h1 text-primary-yellow lg:text-7xl text-4xl">
+            <span className="text-primary-yellow text-4xl lg:text-7xl">
               {" "}
               {data.fullName}
             </span>
             <p>{data.headline}</p>
             <div>
               <SmoothScrollButton/>
-              {/* <ButtonCustom/> */}
-              {/* <Button
-                onClick={() => {
-                  const contactSection = document.getElementById("contact");
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="mt-6 text-primary-yellow bg-transparent border-3 border-primary-yellow text-xl font-semibold p-4 transition-transform duration-300 ease-in-out transform hover:bg-primary-yellow hover:text-main-grey hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-primary-yellow/50"
-              >
-                Contact Me
-              </Button> */}
-
-              {/* <button className="p">Contact Us</button> */}
             </div>
           </span>
 
           <div
-            className="relative rounded-2xl mb-4 lg:w-[50vw] lg:max-w-[60vw] w-full h-[60vh] bg-top "
+            className="relative rounded-2xl mb-4 w-full lg:w-1/2 h-96 bg-top overflow-hidden"
             aria-label={data.profileImage.alt}
           >
             <ul className="absolute bottom-4 right-4 flex flex-col items-end gap-y-4">
@@ -97,9 +79,6 @@ export default async function Home() {
             </ul>
           </div>
         </div>
-
-        {/* <Job/> */}
-        {/* <HeroSvg /> */}
       </section>
 
       <section id="about" className="bg-about-grey">
@@ -107,9 +86,6 @@ export default async function Home() {
       </section>
       <section id="projects">
         <Projects />
-        <Link href="/projects">
-        <Button >View More</Button>
-        </Link>
       </section>
       <section id="contact">
         <Contact />
