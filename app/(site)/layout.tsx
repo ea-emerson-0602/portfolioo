@@ -23,7 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-main text-white">
         <Navbar />
+        <div>
         {children}
+        </div>
+        
+        
         <Footer/>
         </body>
     </html>

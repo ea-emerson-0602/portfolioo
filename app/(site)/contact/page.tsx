@@ -1,30 +1,44 @@
-import React from 'react';
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaTwitter, FaLinkedin, FaFacebook, FaWhatsapp } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 
-export default function Contact() {
+
+export default function ContactSection() {
   return (
-    <section className="bg-dark-grey py-12">
-      <h2 className="text-4xl font-bold text-center text-white mb-12">Contact Me</h2>
+<section className=" pt-28   ">
+<div className=' border-y-3 bg-skills-grey border-y-primary-yellow '>
+  <div className=" flex justify-center">
+    <h1 className="font-bold text-center bg-dark-grey p-4">
+      Contact Me
+    </h1>
+  </div>
 
-      <div className="flex flex-col items-center md:flex-row justify-center gap-8 mb-12">
-        <ContactItem icon={<FaEnvelope />} text="aghoghoemerson7@email.com" />
-        <ContactItem icon={<FaPhoneAlt />} text="(234) 810-581-9021" />
-        <ContactItem icon={<FaMapMarkerAlt />} text="Benin City, Nigeria" />
-      </div>
+  <div className="flex flex-col items-center gap-8 mb-12 mt-8">
+    <div className="flex justify-center gap-8">
+      <ContactItem icon={<FaEnvelope />} text="aghoghoemerson7@email.com" />
+      <ContactItem icon={<FaPhoneAlt />} text="(234) 810-581-9021" />
+    </div>
+    <div className="flex justify-center">
+      <ContactItem icon={<FaMapMarkerAlt />} text="Benin City, Nigeria" />
+    </div>
+  </div>
+  
+  <div className="justify-center gap-6 text-primary-yellow my-12 bg-dark-grey flex px-4">
+    <SocialIcon href="#" icon={<FaFacebook />} />
+    <SocialIcon href="#" icon={<FaTwitter />} />
+    <SocialIcon href="#" icon={<FaLinkedin />} />
+    <SocialIcon href="#" icon={<FaWhatsapp />} />
+  </div>
+</div>
 
-      <div className="flex justify-center gap-6 text-primary-yellow">
-        <SocialIcon href="#" icon={<FaFacebook />} />
-        <SocialIcon href="#" icon={<FaTwitter />} />
-        <SocialIcon href="#" icon={<FaLinkedin />} />
-        <SocialIcon href="#" icon={<FaWhatsapp />} />
-      </div>
-    </section>
+</section>
+
+
   );
 }
 
+
 function ContactItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="flex items-center space-x-4 bg-dark-primary-grey px-6 py-4 rounded-lg shadow-md">
+    <div className="flex  items-center space-x-4 bg-dark-primary-grey px-6 py-4 rounded-lg shadow-md">
       <div className="text-primary-yellow text-2xl">{icon}</div>
       <div className="text-primary-yellow text-lg">{text}</div>
     </div>

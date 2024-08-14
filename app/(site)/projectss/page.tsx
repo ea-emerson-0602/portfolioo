@@ -3,9 +3,8 @@
 import Link from "next/link";
 import { getProjects } from "@/sanity/sanity.query";
 import type { ProjectType } from "@/types";
-import { Button } from "../components/ui/button";
 
-export default async function Projects() {
+export default async function Projectss() {
   const projects: ProjectType[] = await getProjects();
 
   return (
@@ -45,11 +44,7 @@ export default async function Projects() {
           </div>
         ))}
       </section>
-      <Link  className="mt-6 mx-auto flex justify-center" href={"/projectss"}>
-        <Button className="text-primary-yellow bg-transparent border-3 border-primary-yellow text-xl font-semibold py-2 px-6 rounded-lg transition-transform duration-300 ease-in-out transform hover:bg-primary-yellow hover:text-white hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-primary-yellow/50">
-          View More
-        </Button>
-      </Link >
+     
     </main>
   );
 }

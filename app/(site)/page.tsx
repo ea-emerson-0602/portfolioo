@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { getProfile } from "@/sanity/sanity.query";
 import type { ProfileType } from "@/types";
@@ -7,7 +7,11 @@ import { IconType } from "react-icons";
 import About from "./about/page";
 import Projects from "./projects/page";
 import Contact from "./contact/page";
-import { Button } from "@/components/ui/button";
+import SmoothScrollButton from "./components/ui/SmoothScrollButton";
+// import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Button } from "./components/ui/button";
+// import ButtonCustom from "./components/Button";
 
 export default async function Home() {
   const profile: ProfileType[] = await getProfile();
@@ -16,11 +20,11 @@ export default async function Home() {
     github: FaGithub,
     twitter: FaTwitter,
     twitch: FaTwitch,
-    linkedin: FaLinkedin,
+    linkedin: FaLinkedin, 
   };
 
   return profile.map((data) => (
-    <main className="max-w-[100vw] mx-auto mt-0" key={data._id}>
+    <main className="max-w-[100vw] mx-auto mt-0 "  key={data._id}>
       <section
         id="/"
         className=" w-full lg:h-[100vh] flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between px-28 object-cover  py-10"
@@ -42,7 +46,9 @@ export default async function Home() {
             </span>
             <p>{data.headline}</p>
             <div>
-              <Button
+              <SmoothScrollButton/>
+              {/* <ButtonCustom/> */}
+              {/* <Button
                 onClick={() => {
                   const contactSection = document.getElementById("contact");
                   if (contactSection) {
@@ -52,7 +58,7 @@ export default async function Home() {
                 className="mt-6 text-primary-yellow bg-transparent border-3 border-primary-yellow text-xl font-semibold p-4 transition-transform duration-300 ease-in-out transform hover:bg-primary-yellow hover:text-main-grey hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-primary-yellow/50"
               >
                 Contact Me
-              </Button>
+              </Button> */}
 
               {/* <button className="p">Contact Us</button> */}
             </div>
@@ -101,6 +107,9 @@ export default async function Home() {
       </section>
       <section id="projects">
         <Projects />
+        <Link href="/projects">
+        <Button >View More</Button>
+        </Link>
       </section>
       <section id="contact">
         <Contact />
