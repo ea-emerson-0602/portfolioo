@@ -48,7 +48,7 @@ export default function Navbar() {
   const handleClick = (href: string) => {
     if (pathname !== "/") {
       router.push(`/${href}`);
-    } else {
+    // } else {
       const element = document.querySelector(href);
       if (element) {
         setActiveHash(href);
@@ -77,7 +77,10 @@ export default function Navbar() {
           return (
             <li key={item.name} className="relative">
               <a
-                onClick={() => handleClick(item.href)}
+                onClick={() => handleClick(item.href)
+                  
+                }
+                
                 href={item.href}
                 className={`font-semibold duration-300 ${
                   isActive ? "text-primary-yellow " : "hover:text-primary-yellow"
