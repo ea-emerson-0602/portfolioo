@@ -1,5 +1,3 @@
-// import Image from "next/image";
-// "use server"
 import Link from "next/link";
 import { getProjects } from "@/sanity/sanity.query";
 import type { ProjectType } from "@/types";

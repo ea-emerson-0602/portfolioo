@@ -48,7 +48,6 @@ export default function Navbar() {
   const handleClick = (href: string) => {
     if (pathname !== "/") {
       router.push(`/${href}`);
-    // } else {
       const element = document.querySelector(href);
       if (element) {
         setActiveHash(href);

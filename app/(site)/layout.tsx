@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
 import Navbar from "./components/global/Navbar";
 import Footer from "./components/global/Footer";
 import "../globals.css"
-
-// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Sanity Next.js Portfolio Site",
@@ -24,7 +21,7 @@ export default function RootLayout({
       <body className="bg-main text-white">
         <Navbar />
         <div>
-        {children}
+        {/* {children} */}
         </div>
         
         

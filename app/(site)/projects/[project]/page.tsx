@@ -1,4 +1,3 @@
-// app/projects/[project]/page.tsx
 "use server"
 import Image from "next/image";
 import { Metadata } from "next";

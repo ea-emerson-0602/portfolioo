@@ -1,5 +1,3 @@
-// "use client";
-
 import { getProfile } from "@/sanity/sanity.query";
 import type { ProfileType } from "@/types";
 import { FaGithub, FaTwitter, FaLinkedin, FaTwitch } from "react-icons/fa";
@@ -8,10 +6,8 @@ import About from "./about/page";
 import Projects from "./projects/page";
 import Contact from "./contact/page";
 import SmoothScrollButton from "./components/ui/SmoothScrollButton";
-// import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Button } from "./components/ui/button";
-// import ButtonCustom from "./components/Button";
 
 export default async function Home() {
   const profile: ProfileType[] = await getProfile();
@@ -84,9 +80,6 @@ export default async function Home() {
             </ul>
           </div>
         </div>
-
-        {/* <Job/> */}
-        {/* <HeroSvg /> */}
       </section>
 
       <section id="about" className="bg-about-grey">
