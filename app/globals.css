@@ -2,13 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --navbar-height: 80px; /* Adjust based on your navbar height */
+}
 
-h1, .h1 {
+h1{
   font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
   font-size: 4.5rem;
   text-align: center;
 }
+.h1{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  text-align: center;
+}
 html {
   scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) { /* Adjust the max-width as needed */
+  section {
+    padding-top: calc(var(--navbar-height));
+  }
 }

@@ -3,7 +3,7 @@ import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaFacebook, FaTwitter, FaLinked
 
 export default function ContactSection() {
   return (
-<section className=" pt-28   ">
+<section className=" ">
 <div className=' border-y-3 bg-skills-grey border-y-primary-yellow '>
   <div className=" flex justify-center">
     <h1 className="font-bold text-center bg-dark-grey p-4">

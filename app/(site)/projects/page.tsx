@@ -9,7 +9,7 @@ export default async function Projects() {
   const projects: ProjectType[] = await getProjects();
 
   return (
-    <main className="lg:pt-32 pt-12 md:pt-24 mx-auto md:px-16 px-6">
+    <main className="lg:pt-32 md:pt-24 mx-auto md:px-16 px-6">
       <h1 className="font-bold mb-12 lg:leading-[3.7rem] leading-tight">
         Featured projects
       </h1>
