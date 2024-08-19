@@ -1,28 +1,61 @@
 import Link from "next/link";
 import { getProjects } from "@/sanity/sanity.query";
 import type { ProjectType } from "@/types";
+import Image from "next/image";
 
 export default async function Projectss() {
   const projects: ProjectType[] = await getProjects();
 
   return (
-    <main className="lg:pt-32 pt-12 md:pt-24 mx-auto md:px-16 px-6">
-      <section className="mb-16">
-        <h1 className="font-bold tracking-tight sm:text-5xl lg:leading-[3.7rem] leading-tight">
-          Featured projects
-        </h1>
-        
-      </section>
+    <div>
+      <main className="md:block hidden lg:pt-32 pt-12 md:pt-24 mx-auto md:px-16 px-6">
+        <section className="mb-16">
+          <h1 className="font-bold tracking-tight sm:text-5xl lg:leading-[3.7rem] leading-tight">
+            Featured projects
+          </h1>
+        </section>
 
-      <section className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mb-12">
-        {projects.map((project) => (
-          <div
-            key={project._id}
-            className="relative group cursor-pointer flex items-center justify-center bg-cover bg-center h-64 rounded-lg"
-            style={{ backgroundImage: `url(${project.logo})` }}
-          >
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 rounded-lg"></div>
-            <div className="relative opacity-0 group-hover:opacity-100 text-center transition-opacity duration-300">
+        <section className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mb-12">
+          {projects.map((project) => (
+            <div
+              key={project._id}
+              className="relative group cursor-pointer flex items-center justify-center bg-cover bg-center h-64 rounded-lg"
+              style={{ backgroundImage: `url(${project.logo})` }}
+            >
+              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 rounded-lg"></div>
+              <div className="relative opacity-0 group-hover:opacity-100 text-center transition-opacity duration-300">
+                <h2 className="text-white text-2xl font-semibold mb-2">
+                  {project.name}
+                </h2>
+                <p className="text-white text-sm mb-4">{project.tagline}</p>
+                <Link href={`/projects/${project.slug}`}>
+                  <button className="text-white bg-primary-yellow py-2 px-4 rounded-md">
+                    See More
+                  </button>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </section>
+      </main>
+
+      <main className=" block md:hidden px-6">
+        <span className="font-bold text-center text-4xl h1">
+          Featured projects
+        </span>
+
+        <section className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-8 mb-12">
+          {projects.map((project) => (
+            <div
+              key={project._id}
+              className="relative group flex flex-col items-center justify-center cursor-pointer bg-cover bg-center h-[400px] rounded-lg"
+            >
+              <Image
+                src={project.logo}
+                alt={project.name}
+                width={400}
+                height={400}
+              />
               <h2 className="text-white text-2xl font-semibold mb-2">
                 {project.name}
               </h2>
@@ -33,10 +66,9 @@ export default async function Projectss() {
                 </button>
               </Link>
             </div>
-          </div>
-        ))}
-      </section>
-     
-    </main>
+          ))}
+        </section>
+      </main>
+    </div>
   );
 }

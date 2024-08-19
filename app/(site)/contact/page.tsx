@@ -1,40 +1,44 @@
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
-
+import {
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 export default function ContactSection() {
   return (
-<section className=" ">
-<div className=' border-y-3 bg-skills-grey border-y-primary-yellow '>
-  <div className=" flex justify-center">
-    <h1 className="font-bold text-center bg-dark-grey p-4">
-      Contact Me
-    </h1>
-  </div>
+    <section className=" ">
+      <div className=" border-y-3 bg-skills-grey border-y-primary-yellow ">
+        <div className=" flex justify-center">
+          <h1 className="font-bold text-center bg-dark-grey p-4">Contact Me</h1>
+        </div>
 
-  <div className="flex flex-col items-center gap-8 mb-12 mt-8">
-    <div className="flex justify-center gap-8">
-      <ContactItem icon={<FaEnvelope />} text="aghoghoemerson7@email.com" />
-      <ContactItem icon={<FaPhoneAlt />} text="(234) 810-581-9021" />
-    </div>
-    <div className="flex justify-center">
-      <ContactItem icon={<FaMapMarkerAlt />} text="Benin City, Nigeria" />
-    </div>
-  </div>
-  
-  <div className="justify-center gap-6 text-primary-yellow my-12 bg-dark-grey flex px-4">
-    <SocialIcon href="#" icon={<FaFacebook />} />
-    <SocialIcon href="#" icon={<FaTwitter />} />
-    <SocialIcon href="#" icon={<FaLinkedin />} />
-    <SocialIcon href="#" icon={<FaWhatsapp />} />
-  </div>
-</div>
+        <div className="flex flex-col items-center gap-8 mb-12 mt-8">
+          <div className="flex justify-center gap-8">
+            <ContactItem
+              icon={<FaEnvelope />}
+              text="aghoghoemerson7@email.com"
+            />
+            <ContactItem icon={<FaPhoneAlt />} text="(234) 810-581-9021" />
+          </div>
+          <div className="flex justify-center">
+            <ContactItem icon={<FaMapMarkerAlt />} text="Benin City, Nigeria" />
+          </div>
+        </div>
 
-</section>
-
-
+        <div className="justify-center gap-6 text-primary-yellow my-12 bg-dark-grey flex px-4">
+          <SocialIcon href="#" icon={<FaFacebook />} />
+          <SocialIcon href="#" icon={<FaTwitter />} />
+          <SocialIcon href="#" icon={<FaLinkedin />} />
+          <SocialIcon href="#" icon={<FaWhatsapp />} />
+        </div>
+      </div>
+    </section>
   );
 }
-
 
 function ContactItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
@@ -47,7 +51,10 @@ function ContactItem({ icon, text }: { icon: React.ReactNode; text: string }) {
 
 function SocialIcon({ href, icon }: { href: string; icon: React.ReactNode }) {
   return (
-    <a href={href} className="text-2xl hover:text-white transition duration-300">
+    <a
+      href={href}
+      className="text-2xl hover:text-white transition duration-300"
+    >
       {icon}
     </a>
   );

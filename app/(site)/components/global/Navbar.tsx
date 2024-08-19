@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../icons/logo.png";
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
@@ -34,7 +34,7 @@ export default function Navbar() {
     }
     // const element = document.querySelector(href) as HTMLElement;
     // const navbarHeight = document.querySelector('nav')?.clientHeight || 0;
-    
+
     // if (element) {
     //   setActiveHash(href);
     //   const offsetTop = element.offsetTop - navbarHeight;
@@ -54,7 +54,9 @@ export default function Navbar() {
 
         sections.forEach((section) => {
           const sectionElement = section as HTMLElement;
-          const sectionTop = sectionElement.offsetTop - (document.querySelector('nav')?.clientHeight || 0);
+          const sectionTop =
+            sectionElement.offsetTop -
+            (document.querySelector("nav")?.clientHeight || 0);
           if (window.scrollY >= sectionTop) {
             currentActiveHash = `#${section.id}`;
           }
@@ -128,11 +130,16 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Dropdown Menu */}
-      <ul className={`md:hidden ${isOpen ? 'block' : 'hidden'} w-full bg-main shadow-lg transition-all duration-300 absolute left-0 top-[100%] z-50 border-t-2 border-t-primary-yellow`}>
+      <ul
+        className={`md:hidden ${isOpen ? "block" : "hidden"} w-full bg-main shadow-lg transition-all duration-300 absolute left-0 top-[100%] z-50 border-t-2 border-t-primary-yellow`}
+      >
         {navItems.map((item) => {
           const isActive = pathname === "/" && activeHash === item.href;
           return (
-            <li key={item.name} className="relative w-full text-center border-b-1 border-b-primary-yellow px-4 py-2">
+            <li
+              key={item.name}
+              className="relative w-full text-center border-b-1 border-b-primary-yellow px-4 py-2"
+            >
               <a
                 onClick={() => handleNavClick(item.href)}
                 href={item.href}
