@@ -52,5 +52,6 @@ export type SkillType = {
   _id:string;
   name:string;
   logo: string;
+  skillDocUrl:string
 
 }

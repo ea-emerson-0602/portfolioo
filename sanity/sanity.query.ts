@@ -74,6 +74,7 @@ export async function getSkills() {
       _id, 
       name,
       "logo": logo.asset->url,
+      skillDocUrl
     }`
   );
 }

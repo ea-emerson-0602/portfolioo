@@ -20,6 +20,11 @@ const skill = {
       title: "Skill Logo",
       type: "image",
     },
+    {
+      name: "skillDocUrl",
+      title: "Skill Doc URL",
+      type: "url",
+    },
     
   ],
 };
