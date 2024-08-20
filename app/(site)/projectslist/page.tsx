@@ -9,11 +9,11 @@ export default async function Projects() {
 
   return (
     <div className="mx-auto md:px-16 lg:px-24 lg:py-32 md:py-24 px-6">
-      <main className="md:block hidden ">
-        <h1>Featured projects</h1>
+    <main className="md:block hidden ">
+      <h1>Featured projects</h1>
 
         <section className="grid md:grid-cols-2 grid-cols-1 gap-8 mb-12">
-          {projects.slice(0, 2).map((project) => (
+          {projects.map((project) => (
             <div
               key={project._id}
               className="relative group flex items-center justify-center cursor-pointer bg-cover bg-center h-[400px] rounded-lg"
@@ -34,6 +34,7 @@ export default async function Projects() {
             </div>
           ))}
         </section>
+        
       </main>
 
       <main className=" block md:hidden px-6">
@@ -43,7 +44,7 @@ export default async function Projects() {
 
         <section className="grid grid-cols-1 gap-8">
           <div className="space-y-4">
-            {projects.slice(0, 2).map((project) => (
+            {projects.map((project) => (
               <div
                 key={project._id}
                 className="relative group flex flex-col items-center justify-center cursor-pointer bg-cover bg-center mb-12 rounded-lg"
@@ -68,11 +69,6 @@ export default async function Projects() {
           </div>
         </section>
       </main>
-      <Link className="mx-auto flex justify-center" href={"/projectslist"}>
-        <Button className="mt-12 text-primary-yellow bg-transparent border-3 border-primary-yellow text-xl font-semibold py-2 px-6 rounded-lg transition-transform duration-300 ease-in-out transform hover:bg-primary-yellow hover:text-white hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-primary-yellow/50">
-          View More
-        </Button>
-      </Link>
     </div>
   );
 }

@@ -7,36 +7,76 @@ import {
   FaLinkedin,
   FaWhatsapp,
 } from "react-icons/fa";
-
+// mx-auto md:px-16 lg:px-24 lg:py-32 md:py-24 px-6
 export default function ContactSection() {
   return (
-    <section className=" ">
-      <div className=" border-y-3 bg-skills-grey border-y-primary-yellow ">
-        <div className=" flex justify-center">
-          <h1 className="font-bold text-center bg-dark-grey p-4">Contact Me</h1>
-        </div>
+    <div>
+      <main className="md:block hidden mx-auto h-fit bg-skills-grey  lg:mt-32 md:mt-24">
+  <div className="flex flex-col items-center w-full">
 
-        <div className="flex flex-col items-center gap-8 mb-12 mt-8">
-          <div className="flex justify-center gap-8">
-            <ContactItem
-              icon={<FaEnvelope />}
-              text="aghoghoemerson7@email.com"
-            />
-            <ContactItem icon={<FaPhoneAlt />} text="(234) 810-581-9021" />
-          </div>
-          <div className="flex justify-center">
-            <ContactItem icon={<FaMapMarkerAlt />} text="Benin City, Nigeria" />
-          </div>
-        </div>
+    {/* Top Border */}
+    <div className="border-t-3 border-primary-yellow w-full"></div>
+      <div className="flex items-center justify-center w-full py-8">
+        <h1 className="px-4 ">Contact Me</h1>
+      </div>
 
-        <div className="justify-center gap-6 text-primary-yellow my-12 bg-dark-grey flex px-4">
+      {/* Contact Information */}
+      <div className="flex flex-col items-center gap-8 my-8">
+        <div className="flex justify-center gap-8">
+          <ContactItem icon={<FaEnvelope />} text="aghoghoemerson7@email.com" />
+          <ContactItem icon={<FaPhoneAlt />} text="(234) 810-581-9021" />
+        </div>
+        <div className="flex justify-center">
+          <ContactItem icon={<FaMapMarkerAlt />} text="Benin City, Nigeria" />
+        </div>
+      </div>
+
+      {/* Social Icons Section */}
+      <div className="flex items-center justify-center w-full py-8">
+        <div className="flex justify-center gap-6 text-primary-yellow px-4 z-10">
           <SocialIcon href="#" icon={<FaFacebook />} />
           <SocialIcon href="#" icon={<FaTwitter />} />
           <SocialIcon href="#" icon={<FaLinkedin />} />
           <SocialIcon href="#" icon={<FaWhatsapp />} />
         </div>
       </div>
-    </section>
+    </div>
+
+    {/* Bottom Border */}
+    <div className="border-t-3 border-primary-yellow w-full"></div>
+</main>
+
+<main className="block md:hidden mx-auto h-fit bg-skills-grey mt-10">
+  <div className="flex flex-col items-center w-full">
+
+    {/* Top Border */}
+    <div className="border-t-3 border-primary-yellow w-full"></div>
+      <div className="flex items-center justify-center w-full py-4">
+        <span className="font-bold justify-center w-fit mx-auto flex text-4xl h1 border-b-3 border-b-primary-yellow">Contact Me</span>
+      </div>
+
+      {/* Contact Information */}
+      <div className="flex  flex-col gap-8 my-4">
+          <ContactItem icon={<FaEnvelope />} text="aghoghoemerson7@email.com" />
+          <ContactItem icon={<FaPhoneAlt />} text="(234) 810-581-9021" />
+          <ContactItem icon={<FaMapMarkerAlt />} text="Benin City, Nigeria" />
+      </div>
+
+      {/* Social Icons Section */}
+      <div className="flex items-center justify-center w-full py-4">
+        <div className="flex justify-center gap-4 text-primary-yellow px-4 z-10">
+          <SocialIcon href="#" icon={<FaFacebook />} />
+          <SocialIcon href="#" icon={<FaTwitter />} />
+          <SocialIcon href="#" icon={<FaLinkedin />} />
+          <SocialIcon href="#" icon={<FaWhatsapp />} />
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom Border */}
+    <div className="border-t-3 border-primary-yellow w-full"></div>
+</main>
+    </div>
   );
 }
 

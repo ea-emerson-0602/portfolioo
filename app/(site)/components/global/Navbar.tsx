@@ -14,7 +14,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
+  { name: "Projects", href: "#projectss" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -29,17 +29,7 @@ export default function Navbar() {
   };
 
   const handleNavClick = (href: string) => {
-    if (pathname !== "/") {
-      router.push(href);
-    }
-    // const element = document.querySelector(href) as HTMLElement;
-    // const navbarHeight = document.querySelector('nav')?.clientHeight || 0;
-
-    // if (element) {
-    //   setActiveHash(href);
-    //   const offsetTop = element.offsetTop - navbarHeight;
-    //   window.scrollTo({ top: offsetTop, behavior: "smooth" });
-    // }
+  handleClick(href)
     setIsOpen(false);
   };
 
@@ -74,6 +64,18 @@ export default function Navbar() {
     }
   }, [pathname]);
 
+  const handleClick = (href: string) => {
+    if (pathname !== "/") {
+      router.push(`/${href}`);
+    // } else {
+      const element = document.querySelector(href);
+      if (element) {
+        setActiveHash(href);
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-[100vw] bg-main text-xl flex items-center justify-between py-4 px-6 md:px-16 lg:px-24 shadow-md z-50">
       {/* Logo Section */}
@@ -88,7 +90,7 @@ export default function Navbar() {
           return (
             <li key={item.name} className="relative">
               <a
-                onClick={() => handleNavClick(item.href)}
+                onClick={() => handleClick(item.href)}
                 href={item.href}
                 className={`font-semibold duration-300 ${
                   isActive ? "text-primary-yellow" : "hover:text-primary-yellow"

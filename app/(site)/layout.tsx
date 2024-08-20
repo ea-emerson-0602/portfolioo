@@ -20,11 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-main text-white">
         <Navbar />
-        <div>
+        <div className="">
         {children}
         </div>
-        
-        
         <Footer/>
         </body>
     </html>
