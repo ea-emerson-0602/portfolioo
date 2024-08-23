@@ -55,7 +55,7 @@ export default async function Projects() {
                   width={400}
                   height={400}
                 />
-                <h2 className="text-white text-2xl font-semibold mb-2">
+                <h2 className="text-white text-center mx-auto text-xl font-semibold mb-2">
                   {project.name}
                 </h2>
                 <p className="text-white text-sm mb-4">{project.tagline}</p>
