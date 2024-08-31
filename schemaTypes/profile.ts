@@ -41,6 +41,20 @@ const profile = {
       ],
     },
     {
+      name: "mobileProfileImage",
+      title: "Mobile Profile Image",
+      type: "image",
+      description: "Upload a profile picture for mobile view",
+      options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt",
+          type: "string",
+        },
+      ],
+    },
+    {
       name: "shortBio",
       title: "Short Bio",
       type: "text",
