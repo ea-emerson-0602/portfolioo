@@ -38,7 +38,7 @@ export default async function Projects() {
       </main>
 
       <main className=" block md:hidden px-6">
-        <span className="font-bold flex justify-center text-center text-4xl h1 my-8">
+        <span className="font-bold flex justify-center text-center text-4xl h1 mb-8">
           Featured projects
         </span>
 
