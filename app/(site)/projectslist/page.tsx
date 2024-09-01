@@ -8,7 +8,7 @@ export default async function Projects() {
   const projects: ProjectType[] = await getProjects();
 
   return (
-    <div className="mx-auto md:px-16 lg:px-24 lg:py-32 md:py-24 px-6">
+    <div className="mx-auto md:px-16 lg:px-24 py-32 lg:py-32 md:py-24 px-6">
     <main className="md:block hidden ">
       <h1>Featured projects</h1>
 
