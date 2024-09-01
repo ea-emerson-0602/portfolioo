@@ -62,7 +62,7 @@ export default async function Project({ params }: Props) {
           <PortableText value={project.description} />
         </div>
       </main>
-      <section className=" block md:hidden px-6 mx-auto">
+      <section className=" block md:hidden px-6 py-10 mx-auto">
         <div className="flex flex-col items-start justify-between mb-4">
           <h1 className="font-bold h1 text-4xl text-center mx-auto ">{project.name}</h1>
 
