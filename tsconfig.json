@@ -1,26 +1,60 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
+    // "esModuleInterop": true,
+    // "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    // "jsx": "preserve",
     "incremental": true,
+    "types": [
+      "jest",
+      "node"
+    ],
+    // "baseUrl": ".",
+    "jsx": "preserve", // Use "react" if using React 16 or older
+    "module": "ESNext",
+    "target": "ES6",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ],
+      "@/sanity/*": [
+        "sanity/*"
+      ],
+      "@/types": [
+        "types"
+      ],
+      "@/components/*": [
+        "components/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "__tests__/About.test.jsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
