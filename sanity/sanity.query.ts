@@ -10,6 +10,7 @@ export async function getProfile() {
       fullName,
       headline,
       profileImage {alt, "image": asset->url},
+      mobileProfileImage {alt, "image": asset->url},
       shortBio,
       location,
       fullBio,

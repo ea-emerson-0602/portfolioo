@@ -10,6 +10,10 @@ export type ProfileType = {
     alt: string,
     image: string
   },
+  mobileProfileImage:{
+    alt:string,
+    image:string
+  },
   shortBio: string,
   email: string,
   fullBio: PortableTextBlock[],
