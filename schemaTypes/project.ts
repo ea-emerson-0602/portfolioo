@@ -24,11 +24,18 @@ const project = {
       name: "slug",
       title: "Slug",
       type: "slug",
-      description:
-        "Add a custom slug for the URL or generate one from the name",
+      description: "Add a custom slug for the URL or generate one from the name",
       options: { source: "name" },
       validation: (rule) => rule.required(),
     }),
+    
+    // defineField({
+    //   name: "createdAt",
+    //   title: "Created At",
+    //   type: "datetime",
+    //   options: { dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm" },
+    //   initialValue: () => new Date().toISOString(), // Automatically set current timestamp
+    // }),
     {
       name: "logo",
       title: "Project Logo",
@@ -59,6 +66,13 @@ const project = {
       type: "array",
       description: "Write a full description about this project",
       of: [{ type: "block" }],
+    },
+    {
+      name: "createdAt",
+      title: "Created At",
+      type: "datetime",
+      description: "Timestamp of when the project was created",
+      options: { dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm", timeStep: 1 },
     },
   ],
 };

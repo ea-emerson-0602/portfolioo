@@ -2,17 +2,16 @@ import Link from "next/link";
 import { getProjects } from "@/sanity/sanity.query";
 import type { ProjectType } from "@/types";
 import Image from "next/image";
-import { Button } from "../components/ui/button";
 
 export default async function Projects() {
   const projects: ProjectType[] = await getProjects();
 
   return (
-    <div className="mx-auto md:px-16 lg:px-24 py-32 lg:py-32 md:py-24 px-6">
+    <div className="mx-auto md:px-16 lg:px-24 pt-32 md:pt-24 lg:pt-32 md:pb-12 px-6">
     <main className="md:block hidden ">
       <h1>Featured projects</h1>
 
-        <section className="grid md:grid-cols-2 grid-cols-1 gap-8 mb-12">
+        <section className="grid md:grid-cols-2 grid-cols-1 gap-12 mb-12">
           {projects.map((project) => (
             <div
               key={project._id}
@@ -43,7 +42,7 @@ export default async function Projects() {
         </span>
 
         <section className="grid grid-cols-1 gap-8">
-          <div className="space-y-4">
+          <div className="">
             {projects.map((project) => (
               <div
                 key={project._id}
@@ -58,7 +57,7 @@ export default async function Projects() {
                 <h2 className="text-white text-center mx-auto text-xl font-semibold mb-2">
                   {project.name}
                 </h2>
-                <p className="text-white text-sm mb-4">{project.tagline}</p>
+                <p className="text-white text-sm mb-4 text-center">{project.tagline}</p>
                 <Link href={`/projects/${project.slug}`}>
                   <button className="text-white bg-primary-yellow py-2 px-4 rounded-md">
                     See More

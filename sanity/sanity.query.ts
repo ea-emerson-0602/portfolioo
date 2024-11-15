@@ -43,14 +43,13 @@ export async function getProfile() {
 
 export async function getProjects() {
   return client.fetch(
-    groq`*[_type == "project"]{
+   groq`*[_type == "project"] | order(createdAt desc){
       _id, 
       name,
       "slug": slug.current,
       tagline,
       "logo": logo.asset->url,
-    }`
-  );
+    }`);
 }
 
 // sanity/sanity.query.ts

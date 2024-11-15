@@ -50,6 +50,7 @@ export type ProjectType = {
     image: string;
   };
   description: PortableTextBlock[];
+  createdAt: string; // Include the timestamp
 };
 
 export type SkillType = {

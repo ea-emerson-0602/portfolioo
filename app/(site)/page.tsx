@@ -21,7 +21,7 @@ export default async function Home() {
     <main className="mx-auto overflow-x-hidden py-16" key={data._id}>
 <section
   id="/"
-  className="w-full lg:h-[100vh] flex lg:flex-row flex-col lg:items-center lg:justify-center lg:px-28 px-8 md:px-16 py-10 hidden lg:flex"
+  className="w-full lg:h-[100vh] lg:flex-row flex-col lg:items-center lg:justify-center lg:px-28 px-8 md:px-16 py-10 hidden lg:flex"
   style={{
     backgroundImage: `url(${data.profileImage.image})`,
     backgroundSize: "cover",
