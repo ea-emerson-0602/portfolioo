@@ -124,9 +124,9 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           {isOpen ? (
-            <XIcon className="w-8 h-8" />
+            <XIcon className="w-8 h-8 text-primary-yellow" />
           ) : (
-            <MenuIcon className="w-8 h-8" />
+            <MenuIcon className="w-8 h-8 text-primary-yellow" />
           )}
         </button>
       </div>
