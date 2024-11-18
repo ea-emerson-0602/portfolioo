@@ -26,7 +26,7 @@ export default async function Projects() {
                 <p className="text-white text-sm mb-4">{project.tagline}</p>
                 <Link href={`/projects/${project.slug}`}>
                   <button className="text-white bg-primary-yellow py-2 px-4 rounded-md">
-                    See More
+                    More Details
                   </button>
                 </Link>
               </div>
@@ -66,7 +66,7 @@ export default async function Projects() {
                 </p>
                 <Link href={`/projects/${project.slug}`}>
                   <button className="text-white bg-primary-yellow py-2 px-4 rounded-md">
-                    See More
+                   More Details
                   </button>
                 </Link>
               </div>
