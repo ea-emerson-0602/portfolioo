@@ -171,10 +171,14 @@ function ContactItem({
   href: string;
 }) {
   return (
-    <div className="flex  items-center space-x-4 bg-dark-primary-grey px-6 py-4 rounded-lg shadow-md">
+    <a
+href={href}
+      rel={rel}
+      target={target}
+ className="flex  items-center space-x-4 bg-dark-primary-grey px-6 py-4 rounded-lg shadow-md">
       <div className="text-primary-yellow text-2xl">{icon}</div>
       <div className="text-primary-yellow text-lg">{text}</div>
-    </div>
+    </a>
   );
 }
 
