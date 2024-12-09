@@ -23,8 +23,8 @@ export default function ContactSection() {
             <div className="flex justify-center gap-8">
               <ContactItem
                 icon={<FaEnvelope />}
-                text="aghoghoemerson7@gmail.com"
-                href={`mailto:aghoghoemerson7@gmail.com`}
+                text="emokiniovoaghogho@gmail.com"
+                href={`mailto:emokiniovoaghogho@gmail.com`}
                 target="_blank"
                 rel="noopener noreferrer"
               />
@@ -96,8 +96,8 @@ export default function ContactSection() {
           <div className="flex  flex-col gap-8 my-4">
             <ContactItem
               icon={<FaEnvelope />}
-              text="aghoghoemerson7@gmail.com"
-              href={`mailto:aghoghoemerson7@gmail.com`}
+              text="emokiniovoaghogho@gmail.com"
+              href={`mailto:emokiniovoaghogho@gmail.com`}
               target="_blank"
               rel="noopener noreferrer"
             />
