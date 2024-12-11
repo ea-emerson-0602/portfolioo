@@ -63,7 +63,7 @@ export default function ContactSection() {
                 icon={<FaTwitter />}
               />
               <SocialIcon
-                href="#"
+                href="https://www.linkedin.com/in/aghogho-emokiniovo-b58801340"
                 target="_blank"
                 rel="noopener noreferrer"
                 icon={<FaLinkedin />}
@@ -135,7 +135,7 @@ export default function ContactSection() {
                 icon={<FaTwitter />}
               />
               <SocialIcon
-                href="#"
+                href="https://www.linkedin.com/in/aghogho-emokiniovo-b58801340"
                 target="_blank"
                 rel="noopener noreferrer"
                 icon={<FaLinkedin />}
