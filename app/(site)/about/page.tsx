@@ -1,10 +1,9 @@
-import Image from "next/image";
 import { getProfile, getSkills } from "@/sanity/sanity.query";
 import type { ProfileType } from "@/types";
-import { PortableText } from "@portabletext/react";
-import { BiEnvelope, BiFile } from "react-icons/bi";
-import project from "@/schemaTypes/project";
 import Skills from "../components/Skills";
+import Link from "next/link";
+import { DownloadIcon } from "@heroicons/react/outline";
+import { Button } from "../components/ui/button";
 
 export default async function About() {
   const profile: ProfileType[] = await getProfile();
@@ -26,6 +25,17 @@ export default async function About() {
                 <span className="text-justify">{data.shortBio}</span>
               </div>
             </section>
+            <Button className="mt-12 text-primary-yellow bg-transparent border-3 border-primary-yellow text-xl font-semibold py-6 px-6 rounded-lg transition-transform duration-300 ease-in-out transform hover:bg-primary-yellow hover:text-white hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-primary-yellow/50 ">
+              <Link
+                href={data.resumeURL}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-x-4"
+              >
+                <DownloadIcon className="w-10 h-auto" /> Resume
+              </Link>
+            </Button>
           </div>
         ))}
 
@@ -33,7 +43,7 @@ export default async function About() {
       </main>
       <main className="block md:hidden px-6 py-10">
         {profile.map((data) => (
-          <div key={data._id} className="relative md:pt-0">
+          <div key={data._id} className="relative md:pt-0 flex flex-col">
             <span className="font-bold justify-center w-fit mx-auto flex text-4xl h1 border-b-3 border-b-primary-yellow">
               About
             </span>
@@ -42,6 +52,19 @@ export default async function About() {
                 {data.shortBio}
               </span>
             </section>
+            {/* <div className="flex justify-center"> */}
+            <Button className="my-6 mx-auto w-fit text-primary-yellow bg-transparent border-3 border-primary-yellow text-xl font-semibold py-6 px-6 rounded-lg transition-transform duration-300 ease-in-out transform hover:bg-primary-yellow hover:text-white hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-primary-yellow/50">
+              <Link
+                href={data.resumeURL}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-x-4"
+              >
+                <DownloadIcon className="w-10 h-auto" /> Resume
+              </Link>
+            </Button>
+            {/* </div> */}
           </div>
         ))}
 

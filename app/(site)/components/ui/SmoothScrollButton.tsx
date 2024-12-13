@@ -1,14 +1,15 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
 interface SmoothScrollButtonProps {
   className?: string;
 }
 
-const SmoothScrollButton: React.FC<SmoothScrollButtonProps> = ({ className }) => {
+const SmoothScrollButton: React.FC<SmoothScrollButtonProps> = ({
+  className,
+}) => {
   const handleClick = () => {
-    
     const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
