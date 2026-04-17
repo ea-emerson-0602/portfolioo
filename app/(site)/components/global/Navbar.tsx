@@ -107,14 +107,14 @@ export default function Navbar() {
       </ul>
 
       {/* Search Bar */}
-      <div className="hidden md:flex bg-[#3D3E42] px-5 py-2 gap-2 items-center rounded-lg">
+      {/* <div className="hidden md:flex bg-[#3D3E42] px-5 py-2 gap-2 items-center rounded-lg">
         <input
           type="search"
           className="bg-transparent w-[10vw] focus:px-2 text-main-grey placeholder:text-main-grey focus:text-primary-yellow focus:outline-none focus:ring-2 focus:ring-primary-yellow focus:border-transparent focus:rounded-md"
           placeholder="Search"
         />
         <FaSearch className="text-primary-yellow" />
-      </div>
+      </div> */}
 
       {/* Mobile Menu Button */}
       <div className="md:hidden">
