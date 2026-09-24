@@ -9,13 +9,13 @@ export default async function Projects() {
   return (
     <div className="mx-auto md:px-16 lg:px-24 pt-32 md:pt-24 lg:pt-32 md:pb-12 px-6">
       <main className="md:block hidden ">
-        <h1>Featured projects</h1>
+        <h1>Projects Catalogue</h1>
 
         <section className="grid md:grid-cols-2 grid-cols-1 gap-12 mb-12">
           {projects.map((project) => (
             <div
               key={project._id}
-              className="relative group flex items-center justify-center cursor-pointer bg-cover bg-center h-[400px] rounded-lg"
+              className="relative group flex items-center justify-center cursor-pointer bg-cover bg-center h-[300px] rounded-lg"
               style={{ backgroundImage: `url(${project.logo})` }}
             >
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 rounded-lg"></div>

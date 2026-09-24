@@ -16,7 +16,7 @@ export default async function Projects() {
           {projects.slice(0, 2).map((project) => (
             <div
               key={project._id}
-              className="relative group flex items-center justify-center cursor-pointer bg-cover bg-center h-[400px] rounded-lg"
+              className="relative group flex items-center justify-center cursor-pointer bg-cover bg-center h-[240px] rounded-lg"
               style={{ backgroundImage: `url(${project.logo})` }}
             >
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-75 transition-opacity duration-300 rounded-lg"></div>
